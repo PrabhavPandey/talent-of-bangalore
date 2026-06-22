@@ -21,16 +21,15 @@ function doPost(e) {
 
     // Write a header row once.
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Timestamp', 'Name', 'Phone', 'Company', 'LinkedIn']);
+      sheet.appendRow(['Timestamp', 'Name', 'Phone', 'Company']);
     }
 
-    var data = e.parameter; // form-encoded fields: name, phone, company, linkedin
+    var data = e.parameter; // form-encoded fields: name, phone, company
     sheet.appendRow([
       new Date(),
       data.name || '',
       data.phone || '',
-      data.company || '',
-      data.linkedin || ''
+      data.company || ''
     ]);
 
     return ContentService
