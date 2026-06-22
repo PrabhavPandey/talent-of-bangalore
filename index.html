@@ -157,6 +157,38 @@
             box-shadow: 0 0 0 3px rgba(224,122,63,0.18);
         }
 
+        .phone-field { display: flex; align-items: stretch; border-radius: 12px; }
+
+        .phone-prefix {
+            display: flex;
+            align-items: center;
+            padding: 0 10px 0 16px;
+            font-size: 15px;
+            color: var(--cream);
+            background: rgba(243,230,207,0.07);
+            border: 1px solid rgba(243,230,207,0.22);
+            border-right: none;
+            border-radius: 12px 0 0 12px;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .phone-field input {
+            border-left: none;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .phone-field input:focus { box-shadow: none; }
+
+        .phone-field:focus-within { box-shadow: 0 0 0 3px rgba(224,122,63,0.18); }
+
+        .phone-field:focus-within .phone-prefix,
+        .phone-field:focus-within input {
+            border-color: var(--lotus-bright);
+            background: rgba(243,230,207,0.12);
+        }
+
         .cta {
             margin-top: 5px;
             font-family: inherit;
@@ -182,6 +214,13 @@
             color: rgba(243,230,207,0.55);
             line-height: 1.5;
         }
+
+        .fineprint a {
+            color: rgba(243,230,207,0.72);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .fineprint a:hover { color: var(--cream); }
 
         /* ---------- Success state ---------- */
         .success { display: none; flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -290,14 +329,15 @@
                 <div class="field">
                     <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
                 </div>
-                <div class="field">
-                    <input type="tel" name="phone" placeholder="Phone number" autocomplete="tel" inputmode="tel" required>
+                <div class="field phone-field">
+                    <span class="phone-prefix">+91</span>
+                    <input type="tel" name="phone" id="phone" placeholder="98765-43210" autocomplete="tel" inputmode="numeric" required>
                 </div>
                 <div class="field">
                     <input type="text" name="company" placeholder="Company name" autocomplete="organization" required>
                 </div>
                 <button type="submit" class="cta" id="submitBtn">Count me in</button>
-                <p class="fineprint">We only reach out about Bosses of Bangalore. No spam, ever.</p>
+                <p class="fineprint">We only reach out about Bosses of Bangalore. No spam, ever. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">Privacy Policy</a></p>
             </form>
 
             <div class="success" id="success">
@@ -311,6 +351,18 @@
     <script>
         const form = document.getElementById('signup');
         const btn = document.getElementById('submitBtn');
+        const phone = document.getElementById('phone');
+
+        // Keep the field to 10 digits, formatted as xxxxx-xxxxx. The +91 lives
+        // in the fixed prefix, so it can't be edited or deleted.
+        phone.addEventListener('input', () => {
+            let d = phone.value.replace(/\D/g, '');
+            if (d.length === 12 && d.startsWith('91')) d = d.slice(2);
+            if (d.length === 11 && d.startsWith('0')) d = d.slice(1);
+            d = d.slice(0, 10);
+            phone.value = d.length > 5 ? d.slice(0, 5) + '-' + d.slice(5) : d;
+            phone.setCustomValidity(d.length === 10 ? '' : 'Please enter your 10-digit mobile number.');
+        });
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -323,10 +375,12 @@
                 // Apps Script web apps don't send CORS headers, so we post in
                 // no-cors mode. The response is opaque; a resolved fetch means
                 // the row was delivered to the Sheet.
+                const data = new FormData(form);
+                data.set('phone', '91' + phone.value.replace(/\D/g, ''));
                 await fetch(form.action, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: new FormData(form)
+                    body: data
                 });
                 showSuccess();
             } catch (err) {
