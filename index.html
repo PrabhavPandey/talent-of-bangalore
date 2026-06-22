@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --terracotta-deep: #4f261d;
+            --base-deep: #2d1525;
             --cream: #f3e6cf;
-            --lotus: #e07a3f;
-            --lotus-bright: #ef9355;
+            --rose: #c74b6f;
+            --rose-bright: #db6585;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background: var(--terracotta-deep);
+            background: var(--base-deep);
             color: var(--cream);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -104,10 +104,10 @@
             position: relative;
             z-index: 3;
             background:
-                radial-gradient(120% 80% at 100% 0%, rgba(224,122,63,0.16), transparent 55%),
-                linear-gradient(160deg, #5e2e22 0%, #46211a 100%);
+                radial-gradient(120% 80% at 100% 0%, rgba(199,75,111,0.14), transparent 55%),
+                linear-gradient(160deg, #3a1a2e 0%, #2d1525 100%);
             border-left: 1px solid rgba(243,230,207,0.10);
-            box-shadow: -40px 0 90px -50px rgba(35,15,10,0.75);
+            box-shadow: -40px 0 90px -50px rgba(25,10,20,0.75);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -123,7 +123,7 @@
             margin-bottom: 10px;
         }
 
-        .panel h2 em { font-style: italic; color: var(--lotus-bright); }
+        .panel h2 em { font-style: italic; color: var(--rose-bright); }
 
         .lede {
             font-size: clamp(14px, 1.1vw, 16px);
@@ -151,9 +151,9 @@
 
         .field input:focus {
             outline: none;
-            border-color: var(--lotus-bright);
+            border-color: var(--rose-bright);
             background: rgba(243,230,207,0.12);
-            box-shadow: 0 0 0 3px rgba(224,122,63,0.18);
+            box-shadow: 0 0 0 3px rgba(199,75,111,0.2);
         }
 
         .phone-field { display: flex; align-items: stretch; border-radius: 12px; }
@@ -180,11 +180,11 @@
 
         .phone-field input:focus { box-shadow: none; }
 
-        .phone-field:focus-within { box-shadow: 0 0 0 3px rgba(224,122,63,0.18); }
+        .phone-field:focus-within { box-shadow: 0 0 0 3px rgba(199,75,111,0.2); }
 
         .phone-field:focus-within .phone-prefix,
         .phone-field:focus-within input {
-            border-color: var(--lotus-bright);
+            border-color: var(--rose-bright);
             background: rgba(243,230,207,0.12);
         }
 
@@ -193,17 +193,17 @@
             font-family: inherit;
             font-size: 15px;
             font-weight: 600;
-            color: #43200f;
-            background: linear-gradient(180deg, var(--lotus-bright), var(--lotus));
+            color: #1a0a14;
+            background: linear-gradient(180deg, var(--rose-bright), var(--rose));
             border: none;
             border-radius: 12px;
             padding: 16px 20px;
             cursor: pointer;
             transition: transform .12s ease, box-shadow .2s ease, opacity .2s ease;
-            box-shadow: 0 10px 28px -10px rgba(224,122,63,0.7);
+            box-shadow: 0 10px 28px -10px rgba(199,75,111,0.6);
         }
 
-        .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 34px -10px rgba(224,122,63,0.85); }
+        .cta:hover { transform: translateY(-1px); box-shadow: 0 14px 34px -10px rgba(199,75,111,0.8); }
         .cta:active { transform: translateY(0); }
         .cta:disabled { opacity: 0.6; cursor: default; transform: none; }
 
@@ -230,8 +230,8 @@
             width: 52px; height: 52px;
             display: grid; place-items: center;
             border-radius: 50%;
-            background: linear-gradient(180deg, var(--lotus-bright), var(--lotus));
-            color: #43200f; font-size: 26px;
+            background: linear-gradient(180deg, var(--rose-bright), var(--rose));
+            color: #1a0a14; font-size: 26px;
         }
 
         .success h2 {
@@ -292,7 +292,7 @@
                 flex: 0 0 auto;
                 border-left: none;
                 border-top: 1px solid rgba(243,230,207,0.14);
-                box-shadow: 0 -24px 55px -30px rgba(35,15,10,0.6);
+                box-shadow: 0 -24px 55px -30px rgba(25,10,20,0.6);
                 padding: 22px 22px max(22px, env(safe-area-inset-bottom));
             }
             .panel h2 { margin-bottom: 6px; }
