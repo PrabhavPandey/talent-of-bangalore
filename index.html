@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bosses of Bangalore — Private Beta</title>
-    <meta name="description" content="An invite-only private beta for the bosses building Bangalore. Leave your details to request access.">
+    <title>Talent of Bangalore — Private Beta</title>
+    <meta name="description" content="An invite-only private beta for the talent powering Bangalore's startups. Leave your details to request access.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -312,17 +312,17 @@
         <div class="hero" role="img" aria-label="Two hands reaching toward each other, one offering a lotus"></div>
 
         <header class="brand">
-            <h1><span class="l1">Bosses</span><span class="l2"><em>of</em>Bangalore</span></h1>
+            <h1><span class="l1">Talent</span><span class="l2"><em>of</em>Bangalore</span></h1>
             <div class="tag">
                 <p class="tag-lead">Inviting applications for a private beta.</p>
-                <p>This is for you if you work in startups and have ever hired or interviewed for your team.</p>
+                <p>This is for you if you're looking for your next role at a Bangalore startup.</p>
                 <p class="tag-more">More information once you're in :)</p>
             </div>
         </header>
 
         <section class="panel">
             <h2>Want in?</h2>
-            <p class="lede">Drop your name and number, and we'll save you a spot.</p>
+            <p class="lede">Drop your details and we'll save you a spot.</p>
 
             <!-- Leads are appended to a Google Sheet via an Apps Script web app (see apps-script.gs) -->
             <form id="signup" action="https://script.google.com/macros/s/AKfycbzZU3NzP5XETvz7SbUNugoeOCB9jCyIGMy0X0I2q_aEqfXRB6gyVV-r2pFH760bAZAE/exec" method="POST" novalidate>
@@ -334,10 +334,13 @@
                     <input type="tel" name="phone" id="phone" placeholder="98765-43210" autocomplete="tel" inputmode="numeric" required>
                 </div>
                 <div class="field">
-                    <input type="text" name="company" placeholder="Company name" autocomplete="organization" required>
+                    <input type="text" name="company" placeholder="Current company" autocomplete="organization" required>
+                </div>
+                <div class="field">
+                    <input type="url" name="linkedin" placeholder="LinkedIn profile URL" autocomplete="url">
                 </div>
                 <button type="submit" class="cta" id="submitBtn">Count me in</button>
-                <p class="fineprint">We only reach out about Bosses of Bangalore. No spam, ever. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">Privacy Policy</a></p>
+                <p class="fineprint">We only reach out about Talent of Bangalore. No spam, ever. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">Privacy Policy</a></p>
             </form>
 
             <div class="success" id="success">

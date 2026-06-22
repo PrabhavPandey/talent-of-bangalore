@@ -1,13 +1,11 @@
-# Bosses of Bangalore
+# Talent of Bangalore
 
-A single-page, invite-only lead-capture landing page for the **Bosses of Bangalore** private beta.
-
-Live: https://bosses-of-bangalore.vercel.app
+A single-page, invite-only lead-capture landing page for the **Talent of Bangalore** private beta.
 
 ## What it does
 
 - Fixed-viewport, zero-scroll landing page with a single call to action.
-- Collects **Name**, **Phone**, and **Company** from each applicant.
+- Collects **Name**, **Phone**, **Current Company**, and **LinkedIn** from each applicant.
 - Submissions are appended to a Google Sheet via a Google Apps Script web app.
 - Responsive: split artwork/form layout on desktop, stacked layout on mobile.
 
@@ -24,7 +22,7 @@ apps-script.gs         # Google Apps Script that writes submissions to the Sheet
 ## Lead capture
 
 The form `POST`s (in `no-cors` mode) to a Google Apps Script web-app endpoint, which
-appends a row — `Timestamp · Name · Phone · Company` — to a Google Sheet.
+appends a row — `Timestamp · Name · Phone · Company · LinkedIn` — to a Google Sheet.
 
 To point it at a different Sheet:
 1. Create a Sheet, then `Extensions → Apps Script` and paste [`apps-script.gs`](apps-script.gs).

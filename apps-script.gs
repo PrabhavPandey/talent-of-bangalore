@@ -1,8 +1,8 @@
 /**
- * Bosses of Bangalore — lead capture → Google Sheet
+ * Talent of Bangalore — lead capture → Google Sheet
  *
  * Setup:
- * 1. Create a Google Sheet (e.g. "Bosses of Bangalore — Leads").
+ * 1. Create a Google Sheet (e.g. "Talent of Bangalore — Leads").
  * 2. In the Sheet: Extensions → Apps Script.
  * 3. Delete any starter code, paste THIS file, and Save.
  * 4. Click Deploy → New deployment → type "Web app".
@@ -21,15 +21,16 @@ function doPost(e) {
 
     // Write a header row once.
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(['Timestamp', 'Name', 'Phone', 'Company']);
+      sheet.appendRow(['Timestamp', 'Name', 'Phone', 'Company', 'LinkedIn']);
     }
 
-    var data = e.parameter; // form-encoded fields: name, phone, company
+    var data = e.parameter; // form-encoded fields: name, phone, company, linkedin
     sheet.appendRow([
       new Date(),
       data.name || '',
       data.phone || '',
-      data.company || ''
+      data.company || '',
+      data.linkedin || ''
     ]);
 
     return ContentService
