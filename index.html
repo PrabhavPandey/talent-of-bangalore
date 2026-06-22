@@ -82,7 +82,7 @@
         .brand h1 em {
             font-style: italic;
             font-size: 0.56em;
-            margin-right: 0.1em;
+            margin-right: 0.25em;
         }
 
         .brand .tag {
@@ -311,17 +311,17 @@
         <div class="hero" role="img" aria-label="Person looking up at pink blossoms in Bengaluru"></div>
 
         <header class="brand">
-            <h1><span class="l1">Builders</span><span class="l2"><em>of</em>Bengaluru</span></h1>
+            <h1><span class="l1">builders</span><span class="l2"><em>of</em>bengaluru</span></h1>
             <div class="tag">
-                <p class="tag-lead">Inviting applications for a private beta.</p>
-                <p>This is for you if you work at a Bangalore startup and are curious about what's next.</p>
-                <p class="tag-more">More information once you're in :)</p>
+                <p class="tag-lead">inviting applications for a private beta.</p>
+                <p>this is for you if you work at a bangalore startup and are curious about what's next.</p>
+                <p class="tag-more">more information once you're in :)</p>
             </div>
         </header>
 
         <section class="panel">
-            <h2>Want in?</h2>
-            <p class="lede">Drop your details and we'll save you a spot.</p>
+            <h2>want in?</h2>
+            <p class="lede">drop your details and we'll save you a spot.</p>
 
             <!-- Leads are appended to a Google Sheet via an Apps Script web app (see apps-script.gs) -->
             <form id="signup" action="https://script.google.com/macros/s/AKfycbwiPILu949yEmuCzB4AfkO-wEfk9ZUOAH4NEphsrtpI4J-7ddewoZfj0fgaThB5FayE/exec" method="POST" novalidate>
@@ -335,14 +335,14 @@
                 <div class="field">
                     <input type="text" name="company" placeholder="Current company" autocomplete="organization" required>
                 </div>
-                <button type="submit" class="cta" id="submitBtn">Count me in</button>
-                <p class="fineprint">We'll only reach out about Talent of Bangalore. No spam, promise. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">Privacy Policy</a></p>
+                <button type="submit" class="cta" id="submitBtn">count me in</button>
+                <p class="fineprint">we'll only reach out about talent of bangalore. no spam, promise. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">privacy policy</a></p>
             </form>
 
             <div class="success" id="success">
                 <div class="check">✓</div>
-                <h2>You're on the list.</h2>
-                <p>Thanks — we've got you. We'll be in touch soon.</p>
+                <h2>you're on the list.</h2>
+                <p>thanks — we've got you. we'll be in touch soon.</p>
             </div>
         </section>
     </main>
@@ -368,7 +368,7 @@
             if (!form.reportValidity()) return;
 
             btn.disabled = true;
-            btn.textContent = 'Sending…';
+            btn.textContent = 'sending…';
 
             try {
                 // Apps Script web apps don't send CORS headers, so we post in
@@ -384,7 +384,7 @@
                 showSuccess();
             } catch (err) {
                 btn.disabled = false;
-                btn.textContent = 'Count me in';
+                btn.textContent = 'count me in';
                 alert('Something went wrong. Please try again in a moment.');
             }
         });
