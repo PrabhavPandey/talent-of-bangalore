@@ -7,7 +7,7 @@
     <meta name="description" content="An invite-only private beta for the builders powering Bengaluru's startups. Leave your details to request access.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --terracotta-deep: #4f261d;
@@ -41,10 +41,9 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background-image: url('assets/hero-desktop.jpg');
+            background-image: url('assets/pink_hero.png');
             background-size: cover;
-            /* pan so the reaching hands + lotus all stay in frame */
-            background-position: 56% center;
+            background-position: 40% center;
         }
 
         /* darken the top so the title reads cleanly over the artwork */
@@ -53,8 +52,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(180deg, rgba(58,27,20,0.62) 0%, rgba(58,27,20,0.12) 30%, transparent 46%),
-                linear-gradient(90deg, rgba(58,27,20,0.30) 0%, transparent 34%);
+                linear-gradient(180deg, rgba(30,14,10,0.75) 0%, rgba(30,14,10,0.25) 35%, transparent 55%),
+                linear-gradient(90deg, rgba(30,14,10,0.45) 0%, transparent 40%);
             pointer-events: none;
         }
 
@@ -68,8 +67,8 @@
         }
 
         .brand h1 {
-            font-family: 'Comfortaa', sans-serif;
-            font-weight: 700;
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
             color: var(--cream);
             line-height: 0.94;
             letter-spacing: 0;
@@ -81,10 +80,19 @@
         .brand h1 .l2 { display: block; }
 
         .brand h1 em {
-            font-style: normal;
-            font-weight: 400;
+            font-style: italic;
             font-size: 0.56em;
             margin-right: 0.1em;
+        }
+
+        .brand h1 .bengaluru-logo {
+            display: inline-block;
+            height: 0.82em;
+            width: auto;
+            vertical-align: middle;
+            position: relative;
+            top: -0.06em;
+            filter: drop-shadow(0 2px 34px rgba(40,18,12,0.5));
         }
 
         .brand .tag {
@@ -272,13 +280,13 @@
             .hero {
                 flex: 1 1 auto;
                 min-height: 34vh;
-                background-image: url('assets/hero-mobile-art.jpg');
-                background-position: center 40%;
+                background-image: url('assets/pink_hero.png');
+                background-position: 35% center;
             }
             .hero::after {
                 background:
-                    linear-gradient(180deg, rgba(50,23,17,0.86) 0%, rgba(50,23,17,0.5) 30%, rgba(50,23,17,0.12) 46%, transparent 60%),
-                    linear-gradient(0deg, rgba(58,27,20,0.55) 0%, transparent 22%);
+                    linear-gradient(180deg, rgba(30,14,10,0.82) 0%, rgba(30,14,10,0.65) 35%, rgba(30,14,10,0.35) 60%, transparent 80%),
+                    linear-gradient(0deg, rgba(50,23,17,0.60) 0%, transparent 25%);
             }
 
             .brand {
@@ -309,10 +317,10 @@
 </head>
 <body>
     <main class="stage">
-        <div class="hero" role="img" aria-label="Two hands reaching toward each other, one offering a lotus"></div>
+        <div class="hero" role="img" aria-label="Person looking up at pink blossoms in Bengaluru"></div>
 
         <header class="brand">
-            <h1><span class="l1">Builders</span><span class="l2"><em>of</em>Bengaluru</span></h1>
+            <h1><span class="l1">Builders</span><span class="l2"><em>of</em><img src="assets/bengaluru-logo-cream.png" alt="Bengaluru" class="bengaluru-logo"></span></h1>
             <div class="tag">
                 <p class="tag-lead">Inviting applications for a private beta.</p>
                 <p>This is for you if you work at a Bangalore startup and are curious about what's next.</p>
