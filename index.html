@@ -52,8 +52,8 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(180deg, rgba(20,8,5,0.82) 0%, rgba(20,8,5,0.4) 32%, transparent 55%),
-                linear-gradient(90deg, rgba(20,8,5,0.7) 0%, rgba(20,8,5,0.35) 30%, transparent 60%);
+                linear-gradient(180deg, rgba(15,5,2,0.88) 0%, rgba(15,5,2,0.5) 35%, rgba(15,5,2,0.15) 60%, transparent 75%),
+                linear-gradient(90deg, rgba(15,5,2,0.8) 0%, rgba(15,5,2,0.5) 25%, rgba(15,5,2,0.15) 50%, transparent 70%);
             pointer-events: none;
         }
 
@@ -83,16 +83,6 @@
             font-style: italic;
             font-size: 0.56em;
             margin-right: 0.1em;
-        }
-
-        .brand h1 .bengaluru-logo {
-            display: inline-block;
-            height: 1.1em;
-            width: auto;
-            vertical-align: middle;
-            position: relative;
-            top: -0.04em;
-            filter: drop-shadow(0 2px 34px rgba(40,18,12,0.5));
         }
 
         .brand .tag {
@@ -285,27 +275,28 @@
             }
             .hero::after {
                 background:
-                    linear-gradient(180deg, rgba(30,14,10,0.82) 0%, rgba(30,14,10,0.65) 35%, rgba(30,14,10,0.35) 60%, transparent 80%),
-                    linear-gradient(0deg, rgba(50,23,17,0.60) 0%, transparent 25%);
+                    linear-gradient(180deg, rgba(15,5,2,0.88) 0%, rgba(15,5,2,0.6) 30%, rgba(15,5,2,0.3) 55%, rgba(15,5,2,0.15) 75%),
+                    linear-gradient(0deg, rgba(40,18,10,0.7) 0%, rgba(40,18,10,0.3) 20%, transparent 40%);
             }
 
             .brand {
-                top: clamp(30px, 5vh, 54px);
+                top: clamp(24px, 4vh, 48px);
                 left: 24px; right: 24px;
                 max-width: none;
                 text-align: center;
             }
-            .brand h1 { font-size: clamp(44px, 13vw, 72px); }
-            .brand .tag { margin: 14px auto 0; }
+            .brand h1 { font-size: clamp(40px, 12vw, 66px); }
+            .brand .tag { margin: 12px auto 0; }
 
             .panel {
                 flex: 0 0 auto;
                 border-left: none;
                 border-top: 1px solid rgba(243,230,207,0.14);
                 box-shadow: 0 -24px 55px -30px rgba(35,15,10,0.6);
-                padding: 26px 22px max(26px, env(safe-area-inset-bottom));
+                padding: 22px 22px max(22px, env(safe-area-inset-bottom));
             }
-            .lede { margin-bottom: 18px; }
+            .panel h2 { margin-bottom: 6px; }
+            .lede { margin-bottom: 14px; }
         }
 
         /* Short phones: trim lede so the form fits */
@@ -320,7 +311,7 @@
         <div class="hero" role="img" aria-label="Person looking up at pink blossoms in Bengaluru"></div>
 
         <header class="brand">
-            <h1><span class="l1">Builders</span><span class="l2"><em>of</em><img src="assets/bengaluru-logo-cream.png" alt="Bengaluru" class="bengaluru-logo"></span></h1>
+            <h1><span class="l1">Builders</span><span class="l2"><em>of</em>Bengaluru</span></h1>
             <div class="tag">
                 <p class="tag-lead">Inviting applications for a private beta.</p>
                 <p>This is for you if you work at a Bangalore startup and are curious about what's next.</p>
