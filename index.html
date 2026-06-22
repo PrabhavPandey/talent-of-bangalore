@@ -290,9 +290,13 @@
 
             .hero {
                 flex: 0 0 auto;
-                height: 46dvh;
+                min-height: 46dvh;
                 background-image: url('assets/pink_hero.png');
                 background-position: 55% center;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                padding: clamp(28px, 5vh, 52px) 24px 24px;
             }
             .hero::after {
                 background:
@@ -301,10 +305,11 @@
             }
 
             .brand {
-                top: clamp(24px, 4vh, 48px);
-                left: 24px; right: 24px;
+                position: relative;
+                top: auto; left: auto; right: auto;
                 max-width: none;
                 text-align: center;
+                z-index: 2;
             }
             .brand h1 { font-size: clamp(40px, 12vw, 66px); }
             .brand .tag { margin: 12px auto 0; }
@@ -324,7 +329,7 @@
             .fineprint { margin-top: 12px; }
             .gv-pill-wrap { margin-top: 12px; text-align: center; }
 
-            .stage.success-mode .hero { height: 44dvh; }
+            .stage.success-mode .hero { min-height: 44dvh; }
             .stage.success-mode .panel { flex: 1 1 0; justify-content: center; align-items: center; text-align: center; }
             .stage.success-mode .success { align-items: center; }
         }
@@ -332,23 +337,23 @@
         /* Short phones: trim lede so the form fits */
         @media (max-width: 820px) and (max-height: 700px) {
             .lede { display: none; }
-            .hero { height: 30dvh; }
+            .hero { min-height: 34dvh; }
             .gv-pill-wrap { margin-top: 8px; }
         }
     </style>
 </head>
 <body>
     <main class="stage">
-        <div class="hero" role="img" aria-label="Person looking up at pink blossoms in Bengaluru"></div>
-
-        <header class="brand">
-            <h1><span class="l1">builders</span><span class="l2"><em>of</em>bengaluru</span></h1>
-            <div class="tag">
-                <p class="tag-lead">inviting applications for a private beta.</p>
-                <p>this is for you if you work at a bangalore startup and are curious about what's next.</p>
-                <p class="tag-more">more information once you're in :)</p>
-            </div>
-        </header>
+        <div class="hero" role="img" aria-label="Person looking up at pink blossoms in Bengaluru">
+            <header class="brand">
+                <h1><span class="l1">builders</span><span class="l2"><em>of</em>bengaluru</span></h1>
+                <div class="tag">
+                    <p class="tag-lead">inviting applications for a private beta.</p>
+                    <p>this is for you if you work at a bangalore startup and are curious about what's next.</p>
+                    <p class="tag-more">more information once you're in :)</p>
+                </div>
+            </header>
+        </div>
 
         <section class="panel">
             <h2>want in?</h2>
