@@ -18,7 +18,11 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html, body { height: 100%; overflow: hidden; }
+        html, body { height: 100%; }
+
+        @media (min-width: 821px) {
+            html, body { overflow: hidden; }
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -221,27 +225,45 @@
         }
         .fineprint a:hover { color: var(--cream); }
 
+        /* ---------- Grapevine pill ---------- */
+        .gv-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(243,230,207,0.08);
+            border: 1px solid rgba(243,230,207,0.12);
+            border-radius: 100px;
+            padding: 5px 12px 5px 10px;
+            font-size: 11px;
+            color: rgba(243,230,207,0.5);
+            text-decoration: none;
+            margin-top: 14px;
+            transition: background .2s ease;
+        }
+        .gv-pill:hover { background: rgba(243,230,207,0.12); }
+        .gv-pill img { height: 12px; width: auto; opacity: 0.5; }
+
         /* ---------- Success state ---------- */
-        .success { display: none; flex-direction: column; align-items: flex-start; gap: 14px; }
+        .success { display: none; flex-direction: column; align-items: flex-start; gap: 12px; }
         .success.show { display: flex; animation: rise .5s ease both; }
-        form.hide, .lede.hide, .panel h2.hide { display: none; }
+        form.hide, .lede.hide, .panel h2.hide, .fineprint.hide { display: none; }
 
         .success .check {
-            width: 52px; height: 52px;
+            width: 44px; height: 44px;
             display: grid; place-items: center;
             border-radius: 50%;
             background: linear-gradient(180deg, var(--rose-bright), var(--rose));
-            color: #1a0a14; font-size: 26px;
+            color: #1a0a14; font-size: 22px;
         }
 
         .success h2 {
             font-family: 'DM Serif Display', serif;
             font-weight: 400;
-            font-size: clamp(28px, 3vw, 40px);
+            font-size: clamp(24px, 3vw, 36px);
             color: var(--cream);
         }
 
-        .success p { color: rgba(243,230,207,0.82); max-width: 38ch; line-height: 1.55; }
+        .success p { color: rgba(243,230,207,0.82); max-width: 38ch; line-height: 1.55; font-size: clamp(14px, 1.1vw, 16px); }
 
         @keyframes rise {
             from { opacity: 0; transform: translateY(12px); }
@@ -336,7 +358,7 @@
                     <input type="text" name="company" placeholder="Current company" autocomplete="organization" required>
                 </div>
                 <button type="submit" class="cta" id="submitBtn">count me in</button>
-                <p class="fineprint">we'll only reach out about builders of bengaluru. no spam, promise. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">privacy policy</a></p>
+                <p class="fineprint" id="fineprint">we'll only reach out about builders of bengaluru. no spam, promise. · <a href="https://www.grapevine.in/privacy" target="_blank" rel="noopener">privacy policy</a></p>
             </form>
 
             <div class="success" id="success">
@@ -344,6 +366,8 @@
                 <h2>you're on the list.</h2>
                 <p>in the new order, the best move first.</p>
             </div>
+
+            <a href="https://www.grapevine.in" target="_blank" rel="noopener" class="gv-pill">from the team behind <img src="assets/grapevine-cream.png" alt="grapevine"></a>
         </section>
     </main>
 
@@ -392,6 +416,7 @@
         function showSuccess() {
             document.querySelector('.panel h2').classList.add('hide');
             document.querySelector('.lede').classList.add('hide');
+            document.getElementById('fineprint').classList.add('hide');
             form.classList.add('hide');
             document.getElementById('success').classList.add('show');
         }
